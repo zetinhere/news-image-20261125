@@ -8,7 +8,7 @@ A make.fun entry for [news-image-20261125](https://make.fun/bounty/news-image-20
 
 ## How it works
 
-`draw.py` renders `entry.png` (1024×1024, PIL only, no network, no downloaded images) from the six stories and the side panel above. `main.ts` is the graded entrypoint: it copies that PNG into the output directory.
+`draw.py` renders `entry.png` (1024×1024, PIL only, no network, no downloaded images) from the six stories and the side panel above. `main.ts` is the graded entrypoint: it runs `draw.py` and writes that PNG into the output directory.
 
 ```sh
 python3 draw.py
