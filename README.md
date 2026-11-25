@@ -8,12 +8,13 @@ A make.fun entry for [news-image-20261125](https://make.fun/bounty/news-image-20
 
 ## How it works
 
-`draw.py` renders `entry.png` (1024×1024, PIL only, no network, no downloaded images) from the six stories and the side panel above. `main.ts` is the graded entrypoint: it runs `draw.py` and writes that PNG into the output directory.
+`draw.js` renders `entry.png` (1024×1024) from the six stories and the side panel above, in pure Node.js: `font.js` shapes text from the subsetted Liberation Sans fonts in `fonts/` (same metrics and kerning as the PIL render it replaces), `canvas.js` draws the page, and `png.js` encodes the PNG. No external programs, no network, no system fonts — the grader image ships node alone, and an earlier version of this entry failed there because it shelled out to `python3`. `main.ts` is the graded entrypoint: it renders and writes the PNG into the output directory.
 
 ```sh
-python3 draw.py
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
+
+The fonts are Liberation Sans (SIL Open Font License 1.1), subsetted to the characters this page uses.
 
 ---
 
